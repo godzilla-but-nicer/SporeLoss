@@ -1,0 +1,14 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+WP_019707832.1       -          TIGR01079            TIGR01079    2.1e-35  119.6  10.4   2.3e-35  119.4  10.4   1.0   1   0   0   1   1   1   1 MULTISPECIES: 50S ribosomal protein L24 [Streptomyces]
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      TIGR01079.HMM
+# Target file:     ../MetaSpore/MetaSpore/data/outgroup/GCF_000719865.1_ASM71986v1_protein.faa
+# Option settings: hmmsearch -o ../MetaSpore/MetaSpore/data/outgroup/GCF_000719865.1_TIGR01079_HMM.out --tblout ../MetaSpore/MetaSpore/data/outgroup/GCF_000719865.1_ASM71986v1_TIGR01079_HMM.txt -E 0.00001 TIGR01079.HMM ../MetaSpore/MetaSpore/data/outgroup/GCF_000719865.1_ASM71986v1_protein.faa 
+# Current dir:     /mnt/d/HUG_RIBO_TIGRFAMS
+# Date:            Tue Apr 30 09:50:03 2019
+# [ok]

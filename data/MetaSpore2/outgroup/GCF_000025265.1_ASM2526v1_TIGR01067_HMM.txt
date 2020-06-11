@@ -1,0 +1,14 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+WP_012932830.1       -          TIGR01067            TIGR01067    1.3e-55  184.8   1.1   1.5e-55  184.7   1.1   1.0   1   0   0   1   1   1   1 50S ribosomal protein L14 [Conexibacter woesei]
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      TIGR01067.HMM
+# Target file:     ../MetaSpore/MetaSpore/data/outgroup/GCF_000025265.1_ASM2526v1_protein.faa
+# Option settings: hmmsearch -o ../MetaSpore/MetaSpore/data/outgroup/GCF_000025265.1_ASM2526v1_TIGR01067_HMM.out --tblout ../MetaSpore/MetaSpore/data/outgroup/GCF_000025265.1_ASM2526v1_TIGR01067_HMM.txt -E 0.00001 TIGR01067.HMM ../MetaSpore/MetaSpore/data/outgroup/GCF_000025265.1_ASM2526v1_protein.faa 
+# Current dir:     /mnt/d/HUG_RIBO_TIGRFAMS
+# Date:            Tue Apr 30 09:48:14 2019
+# [ok]

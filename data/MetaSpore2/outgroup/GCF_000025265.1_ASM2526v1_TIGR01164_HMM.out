@@ -1,0 +1,56 @@
+# hmmsearch :: search profile(s) against a sequence database
+# HMMER 3.1b2 (February 2015); http://hmmer.org/
+# Copyright (C) 2015 Howard Hughes Medical Institute.
+# Freely distributed under the GNU General Public License (GPLv3).
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# query HMM file:                  TIGR01164.HMM
+# target sequence database:        ../MetaSpore/MetaSpore/data/outgroup/GCF_000025265.1_ASM2526v1_protein.faa
+# output directed to file:         ../MetaSpore/MetaSpore/data/outgroup/GCF_000025265.1_ASM2526v1_TIGR01164_HMM.out
+# per-seq hits tabular output:     ../MetaSpore/MetaSpore/data/outgroup/GCF_000025265.1_ASM2526v1_TIGR01164_HMM.txt
+# sequence reporting threshold:    E-value <= 1e-05
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Query:       TIGR01164  [M=126]
+Accession:   TIGR01164
+Description: rplP_bact: ribosomal protein uL16
+Scores for complete sequences (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Sequence       Description
+    ------- ------ -----    ------- ------ -----   ---- --  --------       -----------
+    9.3e-61  201.9   1.8    1.1e-60  201.7   1.8    1.0  1  WP_012932827.1  50S ribosomal protein L16 [Conexibacter woese
+
+
+Domain annotation for each sequence (and alignments):
+>> WP_012932827.1  50S ribosomal protein L16 [Conexibacter woesei]
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  201.7   1.8   1.8e-64   1.1e-60       1     126 []       2     127 ..       2     127 .. 0.99
+
+  Alignments for each domain:
+  == domain 1  score: 201.7 bits;  conditional E-value: 1.8e-64
+       TIGR01164   1 lsPkrtkyrkkqkgrlkGkakkgnkvafGeyglkalekawitarqieaarvaltravkrggklWirifpdkpvtkkpaetrmGkGkGsvekwvav 95 
+                     lsPkr+k+rk+++gr +G +++  kv+fGeyglkale+ w+t+rqieaar+a+tr+++rggk+Wi ++pdkp+tkkpaetrmG+GkGs+e wvav
+  WP_012932827.1   2 LSPKRVKFRKQHRGRRRGLSRGQVKVQFGEYGLKALEEGWLTNRQIEAARIAMTRKIRRGGKVWINVYPDKPYTKKPAETRMGSGKGSPEGWVAV 96 
+                     79********************************************************************************************* PP
+
+       TIGR01164  96 vkpGkvlfelagveeevarealklaasklPi 126
+                     vkpG+v+fel gv+ee+area++la++klP+
+  WP_012932827.1  97 VKPGRVMFELGGVSEELAREAMRLAGHKLPV 127
+                     ******************************7 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query model(s):                              1  (126 nodes)
+Target sequences:                         5866  (1984609 residues searched)
+Passed MSV filter:                       114  (0.019434); expected 117.3 (0.02)
+Passed bias filter:                      102  (0.0173883); expected 117.3 (0.02)
+Passed Vit filter:                         5  (0.00085237); expected 5.9 (0.001)
+Passed Fwd filter:                         1  (0.000170474); expected 0.1 (1e-05)
+Initial search space (Z):               5866  [actual number of targets]
+Domain search space  (domZ):               1  [number of targets reported over threshold]
+# CPU time: 0.04u 0.00s 00:00:00.04 Elapsed: 00:00:00.03
+# Mc/sec: 8335.36
+//
+[ok]

@@ -1,0 +1,14 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+WP_019707822.1       -          TIGR03625            TIGR03625      3e-89  296.5   4.4   3.3e-89  296.3   4.4   1.0   1   0   0   1   1   1   1 MULTISPECIES: 50S ribosomal protein L3 [Streptomyces]
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      TIGR03625.HMM
+# Target file:     ../MetaSpore/MetaSpore/data/outgroup/GCF_000719865.1_ASM71986v1_protein.faa
+# Option settings: hmmsearch -o ../MetaSpore/MetaSpore/data/outgroup/GCF_000719865.1_TIGR03625_HMM.out --tblout ../MetaSpore/MetaSpore/data/outgroup/GCF_000719865.1_ASM71986v1_TIGR03625_HMM.txt -E 0.00001 TIGR03625.HMM ../MetaSpore/MetaSpore/data/outgroup/GCF_000719865.1_ASM71986v1_protein.faa 
+# Current dir:     /mnt/d/HUG_RIBO_TIGRFAMS
+# Date:            Tue Apr 30 09:50:04 2019
+# [ok]

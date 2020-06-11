@@ -1,0 +1,14 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+WP_023358197.1       -          TIGR00060            TIGR00060    2.7e-36  123.3   1.9   3.2e-36  123.0   1.9   1.0   1   0   0   1   1   1   1 50S ribosomal protein L18 [Actinoplanes friuliensis]
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      TIGR00060.HMM
+# Target file:     ../MetaSpore/MetaSpore/data/outgroup/GCF_000494755.1_ASM49475v1_protein.faa
+# Option settings: hmmsearch -o ../MetaSpore/MetaSpore/data/outgroup/GCF_000494755.1_ASM49475v1_TIGR00060_HMM.out --tblout ../MetaSpore/MetaSpore/data/outgroup/GCF_000494755.1_ASM49475v1_TIGR00060_HMM.txt -E 0.00001 TIGR00060.HMM ../MetaSpore/MetaSpore/data/outgroup/GCF_000494755.1_ASM49475v1_protein.faa 
+# Current dir:     /mnt/d/HUG_RIBO_TIGRFAMS
+# Date:            Tue Apr 30 09:49:07 2019
+# [ok]

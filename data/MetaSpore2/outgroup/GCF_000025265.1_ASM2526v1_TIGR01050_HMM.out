@@ -1,0 +1,51 @@
+# hmmsearch :: search profile(s) against a sequence database
+# HMMER 3.1b2 (February 2015); http://hmmer.org/
+# Copyright (C) 2015 Howard Hughes Medical Institute.
+# Freely distributed under the GNU General Public License (GPLv3).
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# query HMM file:                  TIGR01050.HMM
+# target sequence database:        ../MetaSpore/MetaSpore/data/outgroup/GCF_000025265.1_ASM2526v1_protein.faa
+# output directed to file:         ../MetaSpore/MetaSpore/data/outgroup/GCF_000025265.1_ASM2526v1_TIGR01050_HMM.out
+# per-seq hits tabular output:     ../MetaSpore/MetaSpore/data/outgroup/GCF_000025265.1_ASM2526v1_TIGR01050_HMM.txt
+# sequence reporting threshold:    E-value <= 1e-05
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Query:       TIGR01050  [M=92]
+Accession:   TIGR01050
+Description: rpsS_bact: ribosomal protein uS19
+Scores for complete sequences (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Sequence       Description
+    ------- ------ -----    ------- ------ -----   ---- --  --------       -----------
+    1.7e-42  141.9   0.5    1.9e-42  141.8   0.5    1.0  1  WP_012932824.1  30S ribosomal protein S19 [Conexibacter woese
+
+
+Domain annotation for each sequence (and alignments):
+>> WP_012932824.1  30S ribosomal protein S19 [Conexibacter woesei]
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  141.8   0.5   3.2e-46   1.9e-42       1      88 [.       1      88 [.       1      90 [] 0.97
+
+  Alignments for each domain:
+  == domain 1  score: 141.8 bits;  conditional E-value: 3.2e-46
+       TIGR01050  1 msRslkkgpfvdkkllkkveklnekekkkviktwsRrstilPelvgltievynGkkfipvyiteemvGhklGefaptrkfkghaksdk 88
+                    msRs kkgpfv++ l+ ++ek+n+ ++k++iktwsR+sti+P++vg+ti+v++G++++pv+++e+mvGhklGefaptr ++gh+++ k
+  WP_012932824.1  1 MSRSSKKGPFVEERLMARIEKMNAANTKQMIKTWSRTSTIFPDMVGHTIAVHDGRRHVPVFVSESMVGHKLGEFAPTRLYRGHTQTGK 88
+                    9***********************************************************************************8766 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query model(s):                              1  (92 nodes)
+Target sequences:                         5866  (1984609 residues searched)
+Passed MSV filter:                        38  (0.00647801); expected 117.3 (0.02)
+Passed bias filter:                       38  (0.00647801); expected 117.3 (0.02)
+Passed Vit filter:                         7  (0.00119332); expected 5.9 (0.001)
+Passed Fwd filter:                         1  (0.000170474); expected 0.1 (1e-05)
+Initial search space (Z):               5866  [actual number of targets]
+Domain search space  (domZ):               1  [number of targets reported over threshold]
+# CPU time: 0.03u 0.02s 00:00:00.05 Elapsed: 00:00:00.03
+# Mc/sec: 6086.13
+//
+[ok]

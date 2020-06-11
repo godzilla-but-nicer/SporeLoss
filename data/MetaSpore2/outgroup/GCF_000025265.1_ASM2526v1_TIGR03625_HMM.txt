@@ -1,0 +1,14 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+WP_012932820.1       -          TIGR03625            TIGR03625    2.7e-76  254.3   4.1     3e-76  254.1   4.1   1.0   1   0   0   1   1   1   1 50S ribosomal protein L3 [Conexibacter woesei]
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      TIGR03625.HMM
+# Target file:     ../MetaSpore/MetaSpore/data/outgroup/GCF_000025265.1_ASM2526v1_protein.faa
+# Option settings: hmmsearch -o ../MetaSpore/MetaSpore/data/outgroup/GCF_000025265.1_ASM2526v1_TIGR03625_HMM.out --tblout ../MetaSpore/MetaSpore/data/outgroup/GCF_000025265.1_ASM2526v1_TIGR03625_HMM.txt -E 0.00001 TIGR03625.HMM ../MetaSpore/MetaSpore/data/outgroup/GCF_000025265.1_ASM2526v1_protein.faa 
+# Current dir:     /mnt/d/HUG_RIBO_TIGRFAMS
+# Date:            Tue Apr 30 09:48:14 2019
+# [ok]

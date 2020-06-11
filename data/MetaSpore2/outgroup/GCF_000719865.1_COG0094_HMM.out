@@ -1,0 +1,59 @@
+# hmmsearch :: search profile(s) against a sequence database
+# HMMER 3.1b2 (February 2015); http://hmmer.org/
+# Copyright (C) 2015 Howard Hughes Medical Institute.
+# Freely distributed under the GNU General Public License (GPLv3).
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# query HMM file:                  COG0094.HMM
+# target sequence database:        ../MetaSpore/MetaSpore/data/outgroup/GCF_000719865.1_ASM71986v1_protein.faa
+# output directed to file:         ../MetaSpore/MetaSpore/data/outgroup/GCF_000719865.1_COG0094_HMM.out
+# per-seq hits tabular output:     ../MetaSpore/MetaSpore/data/outgroup/GCF_000719865.1_ASM71986v1_COG0094_HMM.txt
+# sequence reporting threshold:    E-value <= 1e-05
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Query:       NOG.COG0094.clustalo_raw  [M=674]
+Scores for complete sequences (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Sequence       Description
+    ------- ------ -----    ------- ------ -----   ---- --  --------       -----------
+    9.9e-57  191.2   0.0    1.1e-56  191.1   0.0    1.0  1  WP_019707833.1  MULTISPECIES: 50S ribosomal protein L5 [Strep
+
+
+Domain annotation for each sequence (and alignments):
+>> WP_019707833.1  MULTISPECIES: 50S ribosomal protein L5 [Streptomyces]
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  191.1   0.0   1.9e-60   1.1e-56     487     646 ..      12     185 ..       1     186 [] 0.89
+
+  Alignments for each domain:
+  == domain 1  score: 191.1 bits;  conditional E-value: 1.9e-60
+  NOG.COG0094.clustalo_raw 487 rplrkkrg.alslasekkqsnpmrepkiqklvlnisvges...gdrltraakvLeqlsGqkpvfskarytvrsFgirrgekiack 567
+                               +++r++ + +  l++e++++n+m++p ++k+v+n++vg++   ++ ++ a+++L+ ++Gqkp ++kar+++++F++r+g++i+++
+            WP_019707833.1  12 QRYREEITgK--LREEFSYENVMQIPGLTKIVVNMGVGDAardSKLIEGAIRDLATITGQKPSVTKARKSIAQFKLREGQPIGAH 94 
+                               3344443324..78*********************************************************************** PP
+
+  NOG.COG0094.clustalo_raw 568 vtvrgekameflesll...kv..kefellr.rnfsdtGnfgfGiqehid...lgi.kydpsgiyGmdiyivt...gdrearrllk 639
+                               vt+rg++++efl++ll   ++  ++f++l+ ++f+++Gn++fG++e+ +   ++  k+d  +++Gmdi++vt   +d+e+r+ll+
+            WP_019707833.1  95 VTLRGDRMWEFLDRLLslaLPriRDFRGLSpKQFDGRGNYTFGLTEQVMfheIDQdKID--RVRGMDITVVTtatNDDEGRALLR 177
+                               *****************997789**************************9666656666..9************888888***** PP
+
+  NOG.COG0094.clustalo_raw 640 .lgvpfkh 646
+                                lg+pfk+
+            WP_019707833.1 178 hLGFPFKE 185
+                               ******97 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query model(s):                              1  (674 nodes)
+Target sequences:                         5494  (1854859 residues searched)
+Passed MSV filter:                        80  (0.0145613); expected 109.9 (0.02)
+Passed bias filter:                       79  (0.0143793); expected 109.9 (0.02)
+Passed Vit filter:                        10  (0.00182017); expected 5.5 (0.001)
+Passed Fwd filter:                         1  (0.000182017); expected 0.1 (1e-05)
+Initial search space (Z):               5494  [actual number of targets]
+Domain search space  (domZ):               1  [number of targets reported over threshold]
+# CPU time: 0.10u 0.02s 00:00:00.12 Elapsed: 00:00:00.04
+# Mc/sec: 31254.37
+//
+[ok]

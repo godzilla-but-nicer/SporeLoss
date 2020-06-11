@@ -1,0 +1,14 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+WP_014440726.1       -          TIGR01050            TIGR01050    1.3e-46  155.7   0.6   1.4e-46  155.5   0.6   1.0   1   0   0   1   1   1   1 MULTISPECIES: 30S ribosomal protein S19 [Actinoplanes]
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      TIGR01050.HMM
+# Target file:     ../MetaSpore/MetaSpore/data/outgroup/GCF_000494755.1_ASM49475v1_protein.faa
+# Option settings: hmmsearch -o ../MetaSpore/MetaSpore/data/outgroup/GCF_000494755.1_ASM49475v1_TIGR01050_HMM.out --tblout ../MetaSpore/MetaSpore/data/outgroup/GCF_000494755.1_ASM49475v1_TIGR01050_HMM.txt -E 0.00001 TIGR01050.HMM ../MetaSpore/MetaSpore/data/outgroup/GCF_000494755.1_ASM49475v1_protein.faa 
+# Current dir:     /mnt/d/HUG_RIBO_TIGRFAMS
+# Date:            Tue Apr 30 09:49:07 2019
+# [ok]

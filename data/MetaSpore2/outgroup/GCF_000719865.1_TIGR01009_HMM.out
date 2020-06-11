@@ -1,0 +1,61 @@
+# hmmsearch :: search profile(s) against a sequence database
+# HMMER 3.1b2 (February 2015); http://hmmer.org/
+# Copyright (C) 2015 Howard Hughes Medical Institute.
+# Freely distributed under the GNU General Public License (GPLv3).
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# query HMM file:                  TIGR01009.HMM
+# target sequence database:        ../MetaSpore/MetaSpore/data/outgroup/GCF_000719865.1_ASM71986v1_protein.faa
+# output directed to file:         ../MetaSpore/MetaSpore/data/outgroup/GCF_000719865.1_TIGR01009_HMM.out
+# per-seq hits tabular output:     ../MetaSpore/MetaSpore/data/outgroup/GCF_000719865.1_ASM71986v1_TIGR01009_HMM.txt
+# sequence reporting threshold:    E-value <= 1e-05
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Query:       TIGR01009  [M=212]
+Accession:   TIGR01009
+Description: rpsC_bact: ribosomal protein uS3
+Scores for complete sequences (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Sequence       Description
+    ------- ------ -----    ------- ------ -----   ---- --  --------       -----------
+      4e-93  309.2   1.9    4.8e-93  309.0   1.9    1.0  1  WP_019707828.1  MULTISPECIES: 30S ribosomal protein S3 [Strep
+
+
+Domain annotation for each sequence (and alignments):
+>> WP_019707828.1  MULTISPECIES: 30S ribosomal protein S3 [Streptomyces]
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  309.0   1.9   8.8e-97   4.8e-93       1     209 [.       1     207 [.       1     210 [. 0.99
+
+  Alignments for each domain:
+  == domain 1  score: 309.0 bits;  conditional E-value: 8.8e-97
+       TIGR01009   1 mGqkvnplglRlgitkdwkslwyadkkeyaellkeDlkirellkkelkkasiseveiereadkvevtihtarPglvigkkgkeieklkkelkklv 95 
+                     mGqkvnp+g+Rlgit+d+ks+wyad k y++++keD+ ir++++k +++a+is+veier++d+v+v ihtarPg+vig++g+e ++++ el+kl+
+  WP_019707828.1   1 MGQKVNPHGFRLGITTDFKSRWYAD-KLYKDYVKEDVAIRRMMTKGMERAGISKVEIERTRDRVRVDIHTARPGIVIGRRGAEADRIRGELEKLT 94 
+                     9***********************5.9******************************************************************** PP
+
+       TIGR01009  96 gskevkinikevkkpeldaklvaeeiakqlekRvsfRkamkkaiqkalkagakGvkvkvsGRlaGaeiaRselykeGrvPLhtlRadiDYalaea 190
+                     g k+v++ni evk+pe+da+lva+ +a+ql+ RvsfR+am+k++q+++kagakG+k+++ GRl+Gae++Rse+y+eGrvPLhtlRa++DY++ ea
+  WP_019707828.1  95 G-KQVQLNILEVKNPETDAQLVAQAVAEQLSSRVSFRRAMRKSMQSTMKAGAKGIKIQCGGRLGGAEMSRSEFYREGRVPLHTLRANVDYGFFEA 188
+                     *.********************************************************************************************* PP
+
+       TIGR01009 191 kttyGvigvkvWifkgevl 209
+                     ktt+G igvkvWi+kg+v+
+  WP_019707828.1 189 KTTFGRIGVKVWIYKGDVK 207
+                     ****************986 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query model(s):                              1  (212 nodes)
+Target sequences:                         5494  (1854859 residues searched)
+Passed MSV filter:                       121  (0.022024); expected 109.9 (0.02)
+Passed bias filter:                      111  (0.0202039); expected 109.9 (0.02)
+Passed Vit filter:                         7  (0.00127412); expected 5.5 (0.001)
+Passed Fwd filter:                         1  (0.000182017); expected 0.1 (1e-05)
+Initial search space (Z):               5494  [actual number of targets]
+Domain search space  (domZ):               1  [number of targets reported over threshold]
+# CPU time: 0.06u 0.00s 00:00:00.06 Elapsed: 00:00:00.02
+# Mc/sec: 19661.51
+//
+[ok]

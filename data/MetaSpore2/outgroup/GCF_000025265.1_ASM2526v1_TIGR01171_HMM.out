@@ -1,0 +1,61 @@
+# hmmsearch :: search profile(s) against a sequence database
+# HMMER 3.1b2 (February 2015); http://hmmer.org/
+# Copyright (C) 2015 Howard Hughes Medical Institute.
+# Freely distributed under the GNU General Public License (GPLv3).
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# query HMM file:                  TIGR01171.HMM
+# target sequence database:        ../MetaSpore/MetaSpore/data/outgroup/GCF_000025265.1_ASM2526v1_protein.faa
+# output directed to file:         ../MetaSpore/MetaSpore/data/outgroup/GCF_000025265.1_ASM2526v1_TIGR01171_HMM.out
+# per-seq hits tabular output:     ../MetaSpore/MetaSpore/data/outgroup/GCF_000025265.1_ASM2526v1_TIGR01171_HMM.txt
+# sequence reporting threshold:    E-value <= 1e-05
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Query:       TIGR01171  [M=275]
+Accession:   TIGR01171
+Description: rplB_bact: ribosomal protein uL2
+Scores for complete sequences (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Sequence       Description
+    ------- ------ -----    ------- ------ -----   ---- --  --------       -----------
+   5.9e-128  424.3   5.6     7e-128  424.1   5.6    1.0  1  WP_012932823.1  50S ribosomal protein L2 [Conexibacter woesei
+
+
+Domain annotation for each sequence (and alignments):
+>> WP_012932823.1  50S ribosomal protein L2 [Conexibacter woesei]
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  424.1   5.6  1.2e-131    7e-128       1     274 [.       3     274 ..       3     275 .. 0.99
+
+  Alignments for each domain:
+  == domain 1  score: 424.1 bits;  conditional E-value: 1.2e-131
+       TIGR01171   1 ikklkpvtpgrreavvldfeeltkkskpeksLlkkkkkkkGrnnrGritvrhkggghkklyrvidfkrdkkeieakvasieydPnrsariaLlly 95 
+                     i+k kp++pgrr ++  df+e+t+ skpeksL++ +kk++Grn+ Gr t+rh+ggg+k+lyr idfkr k++++akva+ieydPnrsa+iaLl+y
+  WP_012932823.1   3 IRKPKPTSPGRRFVTYPDFAEITR-SKPEKSLVEGLKKSGGRNSYGRKTSRHRGGGAKRLYRKIDFKRLKDGVPAKVAHIEYDPNRSAYIALLHY 96 
+                     7899*******************9.7********************************************************************* PP
+
+       TIGR01171  96 adGekryilaPkglkvgdtvvsgeeadikvgnalplkniPvGttvhnielkpgkGgqlvrsaGtsaqilakegkyvllrlpsgevrkvekeCrat 190
+                      dGekryilaP  l vg+ vvsg+ea+i+vgn+lp+++iP Gt++hn+el+pg+Ggql+rsaG+s+q+lak+g+ ++lrlpsge+r v+++Crat
+  WP_012932823.1  97 MDGEKRYILAPARLAVGALVVSGPEAEIRVGNCLPIERIPAGTVIHNVELTPGRGGQLARSAGSSVQLLAKDGDMATLRLPSGEMRLVRADCRAT 191
+                     *********************************************************************************************** PP
+
+       TIGR01171 191 iGevgnedhknvklGkaGrkrwlGvrPtvrGvamnPvdhPhGGGegrtskgrkkPvtPWGkptkgvktrkkkkksdklivkrrk 274
+                     iG +gn+dh+nvk+GkaGrkr+lGvrP++rG+amnPvdhPhGGGeg t+ gr +PvtPWG+pt g++trkk k+sd++iv+ r+
+  WP_012932823.1 192 IGVIGNADHQNVKIGKAGRKRHLGVRPQTRGTAMNPVDHPHGGGEGSTTPGR-HPVTPWGVPTLGYRTRKKGKQSDRYIVRGRR 274
+                     ***************************************************6.****************************986 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query model(s):                              1  (275 nodes)
+Target sequences:                         5866  (1984609 residues searched)
+Passed MSV filter:                        97  (0.016536); expected 117.3 (0.02)
+Passed bias filter:                       84  (0.0143198); expected 117.3 (0.02)
+Passed Vit filter:                         6  (0.00102284); expected 5.9 (0.001)
+Passed Fwd filter:                         1  (0.000170474); expected 0.1 (1e-05)
+Initial search space (Z):               5866  [actual number of targets]
+Domain search space  (domZ):               1  [number of targets reported over threshold]
+# CPU time: 0.03u 0.03s 00:00:00.06 Elapsed: 00:00:00.03
+# Mc/sec: 18192.25
+//
+[ok]

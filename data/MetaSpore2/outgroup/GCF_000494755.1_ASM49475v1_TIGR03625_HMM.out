@@ -1,0 +1,61 @@
+# hmmsearch :: search profile(s) against a sequence database
+# HMMER 3.1b2 (February 2015); http://hmmer.org/
+# Copyright (C) 2015 Howard Hughes Medical Institute.
+# Freely distributed under the GNU General Public License (GPLv3).
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# query HMM file:                  TIGR03625.HMM
+# target sequence database:        ../MetaSpore/MetaSpore/data/outgroup/GCF_000494755.1_ASM49475v1_protein.faa
+# output directed to file:         ../MetaSpore/MetaSpore/data/outgroup/GCF_000494755.1_ASM49475v1_TIGR03625_HMM.out
+# per-seq hits tabular output:     ../MetaSpore/MetaSpore/data/outgroup/GCF_000494755.1_ASM49475v1_TIGR03625_HMM.txt
+# sequence reporting threshold:    E-value <= 1e-05
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Query:       TIGR03625  [M=202]
+Accession:   TIGR03625
+Description: L3_bact: 50S ribosomal protein uL3
+Scores for complete sequences (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Sequence       Description
+    ------- ------ -----    ------- ------ -----   ---- --  --------       -----------
+    8.2e-87  289.1   4.0    9.3e-87  288.9   4.0    1.0  1  WP_041840602.1  50S ribosomal protein L3 [Actinoplanes friuli
+
+
+Domain annotation for each sequence (and alignments):
+>> WP_041840602.1  50S ribosomal protein L3 [Actinoplanes friuliensis]
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  288.9   4.0   1.1e-90   9.3e-87       1     202 []       7     207 ..       7     207 .. 0.99
+
+  Alignments for each domain:
+  == domain 1  score: 288.9 bits;  conditional E-value: 1.1e-90
+       TIGR03625   1 gllgkkvGmtqifteegklvpvtvievepnvvvqvktkekdgyeavqlgfgekkekkvnkpeaghfkkagveakrvlkefrveeaeelevgdeik 95 
+                     g+lg k+Gmtq+++++ k+vpvtv++++p+vv+qv+t+e+dgy avql++g+++++kvnkpe gh++kagv+++r+++e+r+++a+e+e+g+e++
+  WP_041840602.1   7 GILGAKLGMTQVWDNN-KVVPVTVVQAGPCVVTQVRTSETDGYVAVQLAYGAIDPRKVNKPEGGHYAKAGVSPRRHIVELRTSDATEYELGQEVT 100
+                     79***********965.99**************************************************************************** PP
+
+       TIGR03625  96 vdlfeegekvdvtgtskGkGfaGvikrhnfkggpasHGsskshRapGSigqrqtpgrvfkgkkmaGhlGnekvtvqnLevvkvdaeknlllvkGa 190
+                     v++f+ g  +dvtg++kGkG+aGv+krh+f+g ++sHG++++hR+pGSig+++tpgrvf+g++maG++G ++ tvqnL++  vd+e+nlllvkGa
+  WP_041840602.1 101 VEAFAVGTPIDVTGKTKGKGYAGVMKRHGFHGLKSSHGVERKHRHPGSIGACATPGRVFRGTRMAGRMGGKRFTVQNLTIQAVDVENNLLLVKGA 195
+                     *********************************************************************************************** PP
+
+       TIGR03625 191 vpGakgslvlvk 202
+                     vpG+kg+l+lv+
+  WP_041840602.1 196 VPGPKGALILVR 207
+                     *********997 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query model(s):                              1  (202 nodes)
+Target sequences:                         8429  (2771992 residues searched)
+Passed MSV filter:                       109  (0.0129315); expected 168.6 (0.02)
+Passed bias filter:                       87  (0.0103215); expected 168.6 (0.02)
+Passed Vit filter:                         7  (0.000830466); expected 8.4 (0.001)
+Passed Fwd filter:                         1  (0.000118638); expected 0.1 (1e-05)
+Initial search space (Z):               8429  [actual number of targets]
+Domain search space  (domZ):               1  [number of targets reported over threshold]
+# CPU time: 0.06u 0.03s 00:00:00.09 Elapsed: 00:00:00.04
+# Mc/sec: 13998.56
+//
+[ok]

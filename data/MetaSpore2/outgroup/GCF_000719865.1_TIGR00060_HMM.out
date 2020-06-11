@@ -1,0 +1,56 @@
+# hmmsearch :: search profile(s) against a sequence database
+# HMMER 3.1b2 (February 2015); http://hmmer.org/
+# Copyright (C) 2015 Howard Hughes Medical Institute.
+# Freely distributed under the GNU General Public License (GPLv3).
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# query HMM file:                  TIGR00060.HMM
+# target sequence database:        ../MetaSpore/MetaSpore/data/outgroup/GCF_000719865.1_ASM71986v1_protein.faa
+# output directed to file:         ../MetaSpore/MetaSpore/data/outgroup/GCF_000719865.1_TIGR00060_HMM.out
+# per-seq hits tabular output:     ../MetaSpore/MetaSpore/data/outgroup/GCF_000719865.1_ASM71986v1_TIGR00060_HMM.txt
+# sequence reporting threshold:    E-value <= 1e-05
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Query:       TIGR00060  [M=114]
+Accession:   TIGR00060
+Description: L18_bact: ribosomal protein uL18
+Scores for complete sequences (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Sequence       Description
+    ------- ------ -----    ------- ------ -----   ---- --  --------       -----------
+    1.8e-39  132.9   3.0    2.2e-39  132.6   3.0    1.0  1  WP_030542571.1  50S ribosomal protein L18 [Streptomyces albus
+
+
+Domain annotation for each sequence (and alignments):
+>> WP_030542571.1  50S ribosomal protein L18 [Streptomyces albus]
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  132.6   3.0     4e-43   2.2e-39       2     114 .]      15     127 .]      14     127 .] 0.93
+
+  Alignments for each domain:
+  == domain 1  score: 132.6 bits;  conditional E-value: 4e-43
+       TIGR00060   2 ksarlrRkkRirkklretgeanrprlvvfrsnrhiyaqviddsksevlasastlekklk..ltgnkdaakkvGklvAerllkkgikdvvfDrgGy 94 
+                     ++a +rR+ R+rk++++t e  rprlvv r+nrh+ aqvidd ++++lasastl+++++    ++ ++a+kvG+lvAer++++gi++vvfDrgG 
+  WP_030542571.1  15 RAAIKRRHIRVRKRISGTPE--RPRLVVTRTNRHMTAQVIDDIAGHTLASASTLDESIRgnEGDKSSQAQKVGALVAERAKAAGIEAVVFDRGGN 107
+                     56779**********98886..*************************************7444556789************************** PP
+
+       TIGR00060  95 kYHGrvaalAeaaReaGlnf 114
+                     +Y Gr+aalA+aaReaGl+f
+  WP_030542571.1 108 QYAGRIAALADAAREAGLKF 127
+                     ******************98 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query model(s):                              1  (114 nodes)
+Target sequences:                         5494  (1854859 residues searched)
+Passed MSV filter:                       169  (0.0307608); expected 109.9 (0.02)
+Passed bias filter:                      145  (0.0263924); expected 109.9 (0.02)
+Passed Vit filter:                        10  (0.00182017); expected 5.5 (0.001)
+Passed Fwd filter:                         1  (0.000182017); expected 0.1 (1e-05)
+Initial search space (Z):               5494  [actual number of targets]
+Domain search space  (domZ):               1  [number of targets reported over threshold]
+# CPU time: 0.03u 0.00s 00:00:00.03 Elapsed: 00:00:00.02
+# Mc/sec: 10572.70
+//
+[ok]

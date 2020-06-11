@@ -1,0 +1,74 @@
+# hmmsearch :: search profile(s) against a sequence database
+# HMMER 3.1b2 (February 2015); http://hmmer.org/
+# Copyright (C) 2015 Howard Hughes Medical Institute.
+# Freely distributed under the GNU General Public License (GPLv3).
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# query HMM file:                  TIGR01049.HMM
+# target sequence database:        ../MetaSpore/MetaSpore/data/outgroup/GCF_000025265.1_ASM2526v1_protein.faa
+# output directed to file:         ../MetaSpore/MetaSpore/data/outgroup/GCF_000025265.1_ASM2526v1_TIGR01049_HMM.out
+# per-seq hits tabular output:     ../MetaSpore/MetaSpore/data/outgroup/GCF_000025265.1_ASM2526v1_TIGR01049_HMM.txt
+# sequence reporting threshold:    E-value <= 1e-05
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Query:       TIGR01049  [M=99]
+Accession:   TIGR01049
+Description: rpsJ_bact: ribosomal protein uS10
+Scores for complete sequences (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Sequence       Description
+    ------- ------ -----    ------- ------ -----   ---- --  --------       -----------
+    1.7e-43  145.2   0.2    1.9e-43  145.1   0.2    1.0  1  WP_041731781.1  30S ribosomal protein S10 [Conexibacter woese
+    6.2e-32  108.2   0.0      7e-32  108.0   0.0    1.0  1  WP_012933576.1  30S ribosomal protein S10 [Conexibacter woese
+
+
+Domain annotation for each sequence (and alignments):
+>> WP_041731781.1  30S ribosomal protein S10 [Conexibacter woesei]
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  145.1   0.2   6.6e-47   1.9e-43       1      98 [.       4     102 ..       4     103 .. 0.97
+
+  Alignments for each domain:
+  == domain 1  score: 145.1 bits;  conditional E-value: 6.6e-47
+       TIGR01049   1 qkiriklksydkelldqsikkivetvkrtgakvkgpipLPtkkekytvlrsphvnkksreqfeirthkRlidivevnsktldaLmkl.dlpagvd 94 
+                     +kiri+lksyd++ +++++k+ivet++rtga+v+gp+pLPt+k++y+v+rsp+++k+sre+feirthkRlidi ++++kt+d+L++l +lpagvd
+  WP_041731781.1   4 NKIRIRLKSYDHSAIETAAKEIVETATRTGATVSGPVPLPTEKNVYCVIRSPFKDKDSREHFEIRTHKRLIDIHQPTPKTVDSLQRLdHLPAGVD 98 
+                     69*************************************************************************************558***** PP
+
+       TIGR01049  95 veik 98 
+                     +ei+
+  WP_041731781.1  99 IEIR 102
+                     **97 PP
+
+>> WP_012933576.1  30S ribosomal protein S10 [Conexibacter woesei]
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  108.0   0.0   2.4e-35     7e-32       2      98 ..       8     104 ..       7     105 .. 0.96
+
+  Alignments for each domain:
+  == domain 1  score: 108.0 bits;  conditional E-value: 2.4e-35
+       TIGR01049   2 kiriklksydkelldqsikkivetvkrtgakvkgpipLPtkkekytvlrsphvnkksreqfeirthkRlidivevnsktldaLmkld.lpagvdv 95 
+                     kiri+lk+yd+++++q+ + i+et++rtga+v+gpi LPt++++++vl  p  + + +e+feirthkRli+i +++++t++aL++ld lp+gvd+
+  WP_012933576.1   8 KIRIRLKGYDTTMVEQAQDRIIETAQRTGARVSGPIRLPTRTRRWAVLTGPTLQ-DQKEHFEIRTHKRLIEIRDATPATVNALQRLDgLPTGVDI 101
+                     9**************************************************986.669****************************659****** PP
+
+       TIGR01049  96 eik 98 
+                     +++
+  WP_012933576.1 102 QLR 104
+                     986 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query model(s):                              1  (99 nodes)
+Target sequences:                         5866  (1984609 residues searched)
+Passed MSV filter:                        52  (0.00886464); expected 117.3 (0.02)
+Passed bias filter:                       52  (0.00886464); expected 117.3 (0.02)
+Passed Vit filter:                         5  (0.00085237); expected 5.9 (0.001)
+Passed Fwd filter:                         2  (0.000340948); expected 0.1 (1e-05)
+Initial search space (Z):               5866  [actual number of targets]
+Domain search space  (domZ):               2  [number of targets reported over threshold]
+# CPU time: 0.02u 0.01s 00:00:00.03 Elapsed: 00:00:00.03
+# Mc/sec: 6549.21
+//
+[ok]

@@ -1,0 +1,56 @@
+# hmmsearch :: search profile(s) against a sequence database
+# HMMER 3.1b2 (February 2015); http://hmmer.org/
+# Copyright (C) 2015 Howard Hughes Medical Institute.
+# Freely distributed under the GNU General Public License (GPLv3).
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# query HMM file:                  TIGR01049.HMM
+# target sequence database:        ../MetaSpore/MetaSpore/data/outgroup/GCF_000719865.1_ASM71986v1_protein.faa
+# output directed to file:         ../MetaSpore/MetaSpore/data/outgroup/GCF_000719865.1_TIGR01049_HMM.out
+# per-seq hits tabular output:     ../MetaSpore/MetaSpore/data/outgroup/GCF_000719865.1_ASM71986v1_TIGR01049_HMM.txt
+# sequence reporting threshold:    E-value <= 1e-05
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Query:       TIGR01049  [M=99]
+Accession:   TIGR01049
+Description: rpsJ_bact: ribosomal protein uS10
+Scores for complete sequences (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Sequence       Description
+    ------- ------ -----    ------- ------ -----   ---- --  --------       -----------
+    8.7e-48  158.9   0.2    9.6e-48  158.8   0.2    1.0  1  WP_004571821.1  MULTISPECIES: 30S ribosomal protein S10 [Stre
+
+
+Domain annotation for each sequence (and alignments):
+>> WP_004571821.1  MULTISPECIES: 30S ribosomal protein S10 [Streptomycetaceae]
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  158.8   0.2   1.7e-51   9.6e-48       1      98 [.       4     101 ..       4     102 .] 0.99
+
+  Alignments for each domain:
+  == domain 1  score: 158.8 bits;  conditional E-value: 1.7e-51
+       TIGR01049   1 qkiriklksydkelldqsikkivetvkrtgakvkgpipLPtkkekytvlrsphvnkksreqfeirthkRlidivevnsktldaLmkldlpagvdv 95 
+                     qkiri+lk+yd+e++d+s+kkivetv+rtga+v+gp+pLPt+k++y+v++sph++k+sre+fe+rthkRlidi+++++kt+d+Lm+ldlpagvd+
+  WP_004571821.1   4 QKIRIRLKAYDHEVIDTSAKKIVETVTRTGASVAGPVPLPTEKNVYCVIKSPHKYKDSREHFEMRTHKRLIDILDPTPKTVDSLMRLDLPAGVDI 98 
+                     79********************************************************************************************* PP
+
+       TIGR01049  96 eik 98 
+                     eik
+  WP_004571821.1  99 EIK 101
+                     **9 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query model(s):                              1  (99 nodes)
+Target sequences:                         5494  (1854859 residues searched)
+Passed MSV filter:                        55  (0.0100109); expected 109.9 (0.02)
+Passed bias filter:                       54  (0.0098289); expected 109.9 (0.02)
+Passed Vit filter:                         2  (0.000364033); expected 5.5 (0.001)
+Passed Fwd filter:                         1  (0.000182017); expected 0.1 (1e-05)
+Initial search space (Z):               5494  [actual number of targets]
+Domain search space  (domZ):               1  [number of targets reported over threshold]
+# CPU time: 0.01u 0.03s 00:00:00.04 Elapsed: 00:00:00.02
+# Mc/sec: 9181.55
+//
+[ok]

@@ -1,0 +1,61 @@
+# hmmsearch :: search profile(s) against a sequence database
+# HMMER 3.1b2 (February 2015); http://hmmer.org/
+# Copyright (C) 2015 Howard Hughes Medical Institute.
+# Freely distributed under the GNU General Public License (GPLv3).
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# query HMM file:                  TIGR01171.HMM
+# target sequence database:        ../MetaSpore/MetaSpore/data/outgroup/GCF_000719865.1_ASM71986v1_protein.faa
+# output directed to file:         ../MetaSpore/MetaSpore/data/outgroup/GCF_000719865.1_TIGR01171_HMM.out
+# per-seq hits tabular output:     ../MetaSpore/MetaSpore/data/outgroup/GCF_000719865.1_ASM71986v1_TIGR01171_HMM.txt
+# sequence reporting threshold:    E-value <= 1e-05
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Query:       TIGR01171  [M=275]
+Accession:   TIGR01171
+Description: rplB_bact: ribosomal protein uL2
+Scores for complete sequences (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Sequence       Description
+    ------- ------ -----    ------- ------ -----   ---- --  --------       -----------
+   6.1e-127  420.9   9.2     7e-127  420.7   9.2    1.0  1  WP_030542566.1  50S ribosomal protein L2 [Streptomyces albus]
+
+
+Domain annotation for each sequence (and alignments):
+>> WP_030542566.1  50S ribosomal protein L2 [Streptomyces albus]
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  420.7   9.2  1.3e-130    7e-127       1     274 [.       3     273 ..       3     274 .. 0.98
+
+  Alignments for each domain:
+  == domain 1  score: 420.7 bits;  conditional E-value: 1.3e-130
+       TIGR01171   1 ikklkpvtpgrreavvldfeeltkkskpeksLlkkkkkkkGrnnrGritvrhkggghkklyrvidfkr.dkkeieakvasieydPnrsariaLll 94 
+                     i+k+kp+tpgrr  +v+df e+t+ s+peksL++ +++k+Grnn Gr+tvrh+ggghk++yrvidf+r dk++++akva+ieydPnr+ariaLl+
+  WP_030542566.1   3 IRKYKPTTPGRRGSSVADFVEITR-STPEKSLVRPLHSKGGRNNAGRVTVRHQGGGHKRAYRVIDFRRhDKDGVPAKVAHIEYDPNRTARIALLH 96 
+                     79*********************9.7******************************************99************************* PP
+
+       TIGR01171  95 yadGekryilaPkglkvgdtvvsgeeadikvgnalplkniPvGttvhnielkpgkGgqlvrsaGtsaqilakegkyvllrlpsgevrkvekeCra 189
+                     y dGekryilaP+glk+gd++  g+ adik+gn+l l+niPvGtt+h+iel+pg G++++rsaG+s+q+lakeg+ + lr+psge+r v+ +Cra
+  WP_030542566.1  97 YVDGEKRYILAPRGLKQGDRIENGPGADIKPGNNLALRNIPVGTTLHAIELRPGGGAKFARSAGASVQLLAKEGTMAHLRMPSGEIRLVDVRCRA 191
+                     *********************************************************************************************** PP
+
+       TIGR01171 190 tiGevgnedhknvklGkaGrkrwlGvrPtvrGvamnPvdhPhGGGegrtskgrkkPvtPWGkptkgvktrkkkkksdklivkrrk 274
+                     t+Gevgn++++n+++GkaGr+rw+GvrPtvrGv+mnPvdhPhGGGeg+ts gr +Pv+PWG+++   +tr+ kk s+k+iv+rrk
+  WP_030542566.1 192 TVGEVGNAEQSNINWGKAGRMRWKGVRPTVRGVVMNPVDHPHGGGEGKTSGGR-HPVSPWGQKEG--RTRSPKKASNKYIVRRRK 273
+                     *************************************************9995.*******9765..9***************98 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query model(s):                              1  (275 nodes)
+Target sequences:                         5494  (1854859 residues searched)
+Passed MSV filter:                       118  (0.021478); expected 109.9 (0.02)
+Passed bias filter:                      100  (0.0182017); expected 109.9 (0.02)
+Passed Vit filter:                        10  (0.00182017); expected 5.5 (0.001)
+Passed Fwd filter:                         1  (0.000182017); expected 0.1 (1e-05)
+Initial search space (Z):               5494  [actual number of targets]
+Domain search space  (domZ):               1  [number of targets reported over threshold]
+# CPU time: 0.04u 0.02s 00:00:00.06 Elapsed: 00:00:00.03
+# Mc/sec: 17002.87
+//
+[ok]
