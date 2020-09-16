@@ -1,3 +1,4 @@
+# figures and genomes and trees
 *.pdf
 *.png
 *.faa
@@ -5,6 +6,36 @@
 *.afa
 *.fasta
 *.fa
+*.aln
+*.n
+
+# directories
+plots/
+data/weller_wu_labelled/
+data/Jordan_MAG_list/*/
+data/bsub_ref_spor_genes/
+weller_wu_supplemental/
+.vscode/
+datasets
+
+# built latex shit
+*.aux
+*.bcf
+*.dvi
+*.fdb_latexmk
+*.fls
+*.run.xml
+
+# my little notes
+notes.txt
+
+# misc
+data/WW_ascension_taxa_missing.csv
+data/WW_ascensions.txt
+data/inferred_weller_and_wu_Accension_search.txt
+data/missing_ww.csv
+data/weller_and_wu_sporulators.xlsx
+data/weller_and_wu_taxonomy_search.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -1,0 +1,1 @@
+GenBank Assembly ID (Accession.version)	GenBank release ID	RefSeq Assembly ID (Accession.version)	RefSeq release ID 
