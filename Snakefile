@@ -190,8 +190,8 @@ rule get_WW_ascension_nums:
 
 rule download_WW_genomes:
     input:
-        csv='data/missing_ww.csv'
-        # csv='data/WW_ascension_taxa.csv'
+        # csv='data/missing_ww.csv'
+        csv='data/WW_ascension_taxa.csv'
     output:
         prot_dir=directory('data/weller_wu_labelled/proteins/'),
         gen_dir=directory('data/weller_wu_labelled/genomes/'),
