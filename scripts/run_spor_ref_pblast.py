@@ -31,8 +31,6 @@ for g, gpath in enumerate(dbs):
     for r, rpath in enumerate(ref_paths):
         bout_path = genome_dir + ref_genes[r] + boutext
         os.system('blastp -query {0} -db {1} -out {2} -num_threads 4 -outfmt 6 -evalue 0.001'.format(rpath, gpath, bout_path))
-        if g > 1:
-            break
 
     blast_outs = glob.glob(genome_dir + '*')
     for blastf in sorted(blast_outs):

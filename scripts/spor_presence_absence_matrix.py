@@ -25,7 +25,7 @@ for fi, blastf in enumerate(blast_files):
     blast_df = pd.read_csv(blastf, sep='\t', names=header, index_col=False)
     # we're going to make a new dataframe with rows as genomes with vectors of
     # gene presence-absence bits
-    genome = blastf.split('/')[-1].split('.')[0]
+    genome = blastf.split('/')[-1].split('.blastout')[0]
     new_row['genome'] = genome
     for _, name, label in relabels.itertuples():
         if label in blast_df['qseqid'].values:

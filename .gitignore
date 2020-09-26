@@ -8,10 +8,13 @@
 *.fa
 *.aln
 *.n
+*.gff
+*.svg
 
 # directories
 plots/
 data/weller_wu_labelled/
+presentation/
 data/Jordan_MAG_list/*/
 data/bsub_ref_spor_genes/
 weller_wu_supplemental/

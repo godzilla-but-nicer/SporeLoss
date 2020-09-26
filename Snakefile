@@ -68,7 +68,7 @@ rule add_ecoli_outgroup:
         "data/dummy.txt",
         db=temp("data/Jordan_MAG_list/test.db")
     script:
-        "scripts/get_ribosomal_seqs_single.py"
+        "scripts/get_ribosomal_seqs_ecoli.py"
 
 
 # alignment of genes so that we can build a phylogeny
@@ -101,13 +101,35 @@ rule concatenate_trimmed:
     script:
         "scripts/concatenate_trimmed.py"
 
+# the IDs in the sequences are not the ones we want to use for our tree
+rule rename_seqs:
+    input:
+        gen_dir="data/Jordan_MAG_list/genomes/",
+        gen_list="data/Jordan_MAG_list/genomes_list.txt",
+        con="data/Jordan_MAG_list/tree_files/concat_ribosomal.afa"
+    output:
+        renamed="data/Jordan_MAG_list/tree_files/renamed_concat.afa",
+        csv="data/Jordan_MAG_list/tree_files/tree_key.csv"
+    script:
+        "scripts/rename_concat.py"
+
+# drop any site where 90% or more have missing base
+rule clean_renamed_concat:
+    input:
+        "data/Jordan_MAG_list/tree_files/renamed_concat.afa"
+    output:
+        "data/Jordan_MAG_list/tree_files/renamed_concat_clean.afa"
+    script:
+        "scripts/drop_low_coverage.py"
+
+
 rule fasttree:
     input:
-        "data/Jordan_MAG_list/tree_files/concat_ribosomal.afa"
+        "data/Jordan_MAG_list/tree_files/renamed_concat_clean.afa"
     output:
         "data/Jordan_MAG_list/tree_files/concat_ribosomal.tree"
     shell:
-        "fasttree -nt {input} > {output}"
+        "fasttree -fastest -nt -gamma -gtr {input} > {output}"
 
 # getting the sequences of sporulation genes from a reference B.subtilis genome
 rule bsub_sporulation:
@@ -199,8 +221,92 @@ rule download_WW_genomes:
     script:
         'scripts/download_WW_genomes.py'
     
-    ## okay what I actually should do is go through all of the numbers in the 
-    # above input csv and find the assembly ascension ID. What I have are NCBI 
-    # reference numbers which I can't download through datasets
+# Now that I have the WW genomes I can get a precence absence matrix for them
+rule ww_protein_blast:
+    input:
+        ref='data/bsub_ref_spor_genes/ref_gene_list.txt',
+        ref_dir='data/bsub_ref_spor_genes/',
+        prot="data/weller_wu_labelled/ww_genomes.txt",
+        prot_dir="data/weller_wu_labelled/proteins/"
+    output:
+        db=directory('data/weller_wu_labelled/pblastdbs/'),
+        out=directory('data/weller_wu_labelled/ref_spor_pblast_out/')
+    script:
+        'scripts/run_spor_ref_pblast.py'
 
+rule ww_presence_absence_matrix:
+    input:
+        blast_dir='data/weller_wu_labelled/ref_spor_pblast_out/',
+        header='data/Jordan_MAG_list/blastout_header_fmt_6.txt'
+    output:
+        mat='data/weller_wu_labelled/spore_prediction/presence_absence.csv',
+        pca='plots/spor_presence_absence/ww_pca.pdf',
+        gene_dist='plots/spor_presence_absence/ww_gene_dist.pdf'
+    script:
+        'scripts/spor_presence_absence_matrix.py'
 
+# lets actually explore this stuff now
+rule pres_abs_umap:
+    input:
+        ww='data/weller_wu_labelled/spore_prediction/presence_absence.csv',
+        jor='data/Jordan_MAG_list/spore_prediction/presence_absence.csv',
+        labs='data/WW_ascension_taxa.csv'
+    output:
+        umap_plot='plots/umap/umap_labelled.pdf',
+        ww_umap='data/weller_wu_labelled/spore_prediction/ww_pres_abs_umap.csv',
+        jor_umap='data/Jordan_MAG_list/spore_prediction/jor_pres_abs_umap.csv'
+    threads: 4
+    script:
+        'scripts/pres_abs_umap.py'
+
+rule weighted_umap:
+    input:
+        ww='data/weller_wu_labelled/spore_prediction/presence_absence.csv',
+        jor='data/Jordan_MAG_list/spore_prediction/presence_absence.csv',
+        labs='data/WW_ascension_taxa.csv',
+        genes='data/delta6-network-genes.csv'
+    output:
+        umap_betw='plots/umap/betweenness_umap.pdf',
+        umap_pg='plots/umap/pagerank_umap.pdf',
+        umap_deg='plots/umap/degree_umap.pdf'
+    script:
+        'scripts/weighted_umap.py'
+
+rule umap_kmeans_2:
+    input:
+        ww='data/weller_wu_labelled/spore_prediction/ww_pres_abs_umap.csv',
+        jor='data/Jordan_MAG_list/spore_prediction/jor_pres_abs_umap.csv'
+    output:
+        descision='plots/decision/kmeans.pdf',
+        classes='data/Jordan_MAG_list/spore_prediction/jor_predicted_classes_2.csv'
+    script:
+        'scripts/umap_k_means_2.py'
+
+rule umap_kmeans_4:
+    input:
+        ww='data/weller_wu_labelled/spore_prediction/ww_pres_abs_umap.csv',
+        jor='data/Jordan_MAG_list/spore_prediction/jor_pres_abs_umap.csv'
+    output:
+        descision='plots/decision/kmeans4.pdf',
+        classes='data/Jordan_MAG_list/spore_prediction/jor_predicted_classes_4.csv'
+    script:
+        'scripts/umap_k_means_4.py'
+
+rule display_pres_abs_ww:
+    input:
+        ww='data/weller_wu_labelled/spore_prediction/presence_absence.csv',
+        labs='data/WW_ascension_taxa.csv'
+    output:
+        mat='plots/presence_absence/full.pdf'
+    script:
+        'scripts/display_presence_absence.py'
+
+# lets try and draw a tree with python
+rule draw_a_tree:
+    input:
+        tree='data/Jordan_MAG_list/tree_files/concat_ribosomal.tree',
+        jor='data/Jordan_MAG_list/spore_prediction/jor_predicted_classes_2.csv'
+    output:
+        tree_viz='plots/trees/first_tree.pdf'
+    script:
+        'scripts/draw_tree.py'
