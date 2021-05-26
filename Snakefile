@@ -28,20 +28,12 @@ rule paper:
         "cd {params.paper_dir}; make"
 
 
-# rule some_data_processing:
-    # input:
-        # "data/some_data.csv"
-    # output:
-        # "data/derived/some_derived_data.csv"
-    # script:
-        # "workflow/scripts/process_some_data.py"
-
 rule get_file_names:
     input:
-        gff="data/Jordan_MAG_list/annotations/",
-        fna="data/Jordan_MAG_list/genomes/"
+        gff="data/annotations/",
+        fna="data/genomes/"
     output:
-        "data/Jordan_MAG_list/genomes_list.txt"
+        "data/genomes_list.txt"
     script:
         "scripts/get_file_names.py"
 
@@ -49,24 +41,24 @@ rule get_file_names:
 # this step is BIG and really should probably be broken up
 rule get_ribosomal_fastas:
     input:
-        gff="data/Jordan_MAG_list/annotations/",
-        fna="data/Jordan_MAG_list/genomes/",
-        genomes="data/Jordan_MAG_list/genomes_list.txt"
+        gff="data/annotations/",
+        fna="data/genomes/",
+        genomes="data/genomes_list.txt"
     output:
-        expand("data/Jordan_MAG_list/ribosomal_genes/{gene}.fna", 
+        expand("data/ribosomal_genes/{gene}.fna", 
                gene=config["ribosomal_genes"]),
-        db=temp("data/Jordan_MAG_list/test.db")
+        db=temp("data/test.db")
     script:
         "scripts/get_ribosomal_seqs.py"
 
 # also for ribosomal gene alignment we're going to need an outgroup
 rule add_ecoli_outgroup:
     input:
-        gff="data/Jordan_MAG_list/GCF_000005845.2_ASM584v2_genomic.ecoli_outgroup.gff",
-        fna="data/Jordan_MAG_list/GCF_000005845.2_ASM584v2_genomic.ecoli_outgroup.fna"
+        gff="data/GCF_000005845.2_ASM584v2_genomic.ecoli_outgroup.gff",
+        fna="data/GCF_000005845.2_ASM584v2_genomic.ecoli_outgroup.fna"
     output:
         "data/dummy.txt",
-        db=temp("data/Jordan_MAG_list/test.db")
+        db=temp("data/test.db")
     script:
         "scripts/get_ribosomal_seqs_ecoli.py"
 
@@ -74,9 +66,9 @@ rule add_ecoli_outgroup:
 # alignment of genes so that we can build a phylogeny
 rule multiple_align_ribosomal:
     input:
-        "data/Jordan_MAG_list/ribosomal_genes/{gene}.fna"
+        "data/ribosomal_genes/{gene}.fna"
     output:
-        "data/Jordan_MAG_list/ribosomal_aligned/{gene}.afa"
+        "data/ribosomal_aligned/{gene}.afa"
     threads: 4
     shell:
         "clustalo --threads {threads} -i {input} -o {output}"
@@ -85,62 +77,62 @@ rule multiple_align_ribosomal:
 # I need to figure out a way to automate this
 rule trim_ribosomal:
     input:
-        afa="data/Jordan_MAG_list/ribosomal_aligned/{gene}.afa",
-        txt="data/Jordan_MAG_list/ribosomal_aligned/manual_start_stop.txt"
+        afa="data/ribosomal_aligned/{gene}.afa",
+        txt="data/ribosomal_aligned/manual_start_stop.txt"
     output:
-        "data/Jordan_MAG_list/ribosomal_trimmed/{gene}.afa"
+        "data/ribosomal_trimmed/{gene}.afa"
     script:
         "scripts/trim_aligned_genes.py"
 
 rule concatenate_trimmed:
     input:
-        expand("data/Jordan_MAG_list/ribosomal_trimmed/{gene}.afa",
+        expand("data/ribosomal_trimmed/{gene}.afa",
                gene=RIBOSOMAL)
     output:
-        "data/Jordan_MAG_list/tree_files/concat_ribosomal.afa"
+        "data/tree_files/concat_ribosomal.afa"
     script:
         "scripts/concatenate_trimmed.py"
 
 # the IDs in the sequences are not the ones we want to use for our tree
 rule rename_seqs:
     input:
-        gen_dir="data/Jordan_MAG_list/genomes/",
-        gen_list="data/Jordan_MAG_list/genomes_list.txt",
-        con="data/Jordan_MAG_list/tree_files/concat_ribosomal.afa"
+        gen_dir="data/genomes/",
+        gen_list="data/genomes_list.txt",
+        con="data/tree_files/concat_ribosomal.afa"
     output:
-        renamed="data/Jordan_MAG_list/tree_files/renamed_concat.afa",
-        csv="data/Jordan_MAG_list/tree_files/tree_key.csv"
+        renamed="data/tree_files/renamed_concat.afa",
+        csv="data/tree_files/tree_key.csv"
     script:
         "scripts/rename_concat.py"
 
 # drop any site where 90% or more have missing base
 rule clean_renamed_concat:
     input:
-        "data/Jordan_MAG_list/tree_files/renamed_concat.afa"
+        "data/tree_files/renamed_concat.afa"
     output:
-        seq="data/Jordan_MAG_list/tree_files/renamed_concat_clean.afa",
-        html="data/Jordan_MAG_list/tree_files/renamed_concat_clean.html"
+        seq="data/tree_files/renamed_concat_clean.afa",
+        html="data/tree_files/renamed_concat_clean.html"
     shell:
         "trimal -in {input} -out {output.seq} -htmlout {output.html} -strict"
 
 
 rule fasttree:
     input:
-        "data/Jordan_MAG_list/tree_files/renamed_concat_clean.afa"
+        "data/tree_files/renamed_concat_clean.afa"
     output:
-        "data/Jordan_MAG_list/tree_files/concat_ribosomal.tree"
+        "data/tree_files/concat_ribosomal.tree"
     shell:
         "fasttree -fastest -nt -gamma -gtr {input} > {output}"
 
 # getting the sequences of sporulation genes from a reference B.subtilis genome
 rule bsub_sporulation:
     input:
-        fna='data/Jordan_MAG_list/GCF_000009045.1_ASM904v1_genomic.bsubtilisref.fna',
-        gff='data/Jordan_MAG_list/GCF_000009045.1_ASM904v1_genomic.bsubtilisref.gff',
+        fna='data/GCF_000009045.1_ASM904v1_genomic.bsubtilisref.fna',
+        gff='data/GCF_000009045.1_ASM904v1_genomic.bsubtilisref.gff',
         genes='data/subtiwiki-sporulation-genes.csv'
     output:
         fna="data/ref_spor_genes/bsub_ref.fna",
-        db=temp("data/Jordan_MAG_list/test.db")
+        db=temp("data/test.db")
     script:
         "scripts/get_bsub_seqs.py"
 
@@ -158,11 +150,11 @@ rule spor_protein_blast:
     input:
         ref='data/bsub_ref_spor_genes/ref_gene_list.txt',
         ref_dir='data/bsub_ref_spor_genes/',
-        prot="data/Jordan_MAG_list/proteins_list.txt",
-        prot_dir="data/Jordan_MAG_list/proteins/"
+        prot="data/proteins_list.txt",
+        prot_dir="data/proteins/"
     output:
-        db=directory('data/Jordan_MAG_list/pblastdbs/'),
-        out=directory('data/Jordan_MAG_list/ref_spor_pblast_out/')
+        db=directory('data/pblastdbs/'),
+        out=directory('data/ref_spor_pblast_out/')
     script:
         'scripts/run_spor_ref_pblast.py'
     
@@ -173,17 +165,17 @@ rule blastout_gene_names:
         ref='data/bsub_ref_spor_genes/ref_gene_list.txt',
         faas='data/bsub_ref_spor_genes/'
     output:
-        'data/Jordan_MAG_list/ref_spor_pblast_out/blastout_genes.csv'
+        'data/ref_spor_pblast_out/blastout_genes.csv'
     script:
         'scripts/get_blast_output_gene_labels.py'
     
 # make a giant matrix for presence or absence of these genes
 rule presence_absence_matrix:
     input:
-        blast_dir='data/Jordan_MAG_list/ref_spor_pblast_out/',
-        header='data/Jordan_MAG_list/blastout_header_fmt_6.txt'
+        blast_dir='data/ref_spor_pblast_out/',
+        header='data/blastout_header_fmt_6.txt'
     output:
-        mat='data/Jordan_MAG_list/spore_prediction/presence_absence.csv',
+        mat='data/spore_prediction/presence_absence.csv',
         pca='plots/spor_presence_absence/pca.pdf',
         gene_dist='plots/spor_presence_absence/gene_dist.pdf'
     script:
@@ -230,7 +222,7 @@ rule ww_protein_blast:
 rule ww_presence_absence_matrix:
     input:
         blast_dir='data/weller_wu_labelled/ref_spor_pblast_out/',
-        header='data/Jordan_MAG_list/blastout_header_fmt_6.txt'
+        header='data/blastout_header_fmt_6.txt'
     output:
         mat='data/weller_wu_labelled/spore_prediction/presence_absence.csv',
         pca='plots/spor_presence_absence/ww_pca.pdf',
@@ -242,12 +234,12 @@ rule ww_presence_absence_matrix:
 rule pres_abs_umap:
     input:
         ww='data/weller_wu_labelled/spore_prediction/presence_absence.csv',
-        jor='data/Jordan_MAG_list/spore_prediction/presence_absence.csv',
+        jor='data/spore_prediction/presence_absence.csv',
         labs='data/WW_ascension_taxa.csv'
     output:
         umap_plot='plots/umap/umap_labelled.pdf',
         ww_umap='data/weller_wu_labelled/spore_prediction/ww_pres_abs_umap.csv',
-        jor_umap='data/Jordan_MAG_list/spore_prediction/jor_pres_abs_umap.csv'
+        jor_umap='data/spore_prediction/jor_pres_abs_umap.csv'
     threads: 4
     script:
         'scripts/pres_abs_umap.py'
@@ -255,7 +247,7 @@ rule pres_abs_umap:
 rule weighted_umap:
     input:
         ww='data/weller_wu_labelled/spore_prediction/presence_absence.csv',
-        jor='data/Jordan_MAG_list/spore_prediction/presence_absence.csv',
+        jor='data/spore_prediction/presence_absence.csv',
         labs='data/WW_ascension_taxa.csv',
         genes='data/delta6-network-genes.csv'
     output:
@@ -268,20 +260,20 @@ rule weighted_umap:
 rule umap_kmeans_2:
     input:
         ww='data/weller_wu_labelled/spore_prediction/ww_pres_abs_umap.csv',
-        jor='data/Jordan_MAG_list/spore_prediction/jor_pres_abs_umap.csv'
+        jor='data/spore_prediction/jor_pres_abs_umap.csv'
     output:
         descision='plots/decision/kmeans.pdf',
-        classes='data/Jordan_MAG_list/spore_prediction/jor_predicted_classes_2.csv'
+        classes='data/spore_prediction/jor_predicted_classes_2.csv'
     script:
         'scripts/umap_k_means_2.py'
 
 rule umap_kmeans_4:
     input:
         ww='data/weller_wu_labelled/spore_prediction/ww_pres_abs_umap.csv',
-        jor='data/Jordan_MAG_list/spore_prediction/jor_pres_abs_umap.csv'
+        jor='data/spore_prediction/jor_pres_abs_umap.csv'
     output:
         descision='plots/decision/kmeans4.pdf',
-        classes='data/Jordan_MAG_list/spore_prediction/jor_predicted_classes_4.csv'
+        classes='data/spore_prediction/jor_predicted_classes_4.csv'
     script:
         'scripts/umap_k_means_4.py'
 
@@ -296,8 +288,8 @@ rule display_pres_abs_ww:
 
 rule random_forest_vars:
     input:
-        classes = 'data/Jordan_MAG_list/spore_prediction/jor_predicted_classes_2.csv',
-        mat = 'data/Jordan_MAG_list/spore_prediction/presence_absence.csv',
+        classes = 'data/spore_prediction/jor_predicted_classes_2.csv',
+        mat = 'data/spore_prediction/presence_absence.csv',
         genes = 'data/delta6-network-genes.csv'
     output:
         corr_mat='plots/random_forest/corr_mat.png',
@@ -313,7 +305,7 @@ rule random_forest_vars:
 # I'll try to reproduce some of jordans results
 rule copy_jordan_figs:
     input:
-        mat = 'data/Jordan_MAG_list/spore_prediction/presence_absence.csv'
+        mat = 'data/spore_prediction/presence_absence.csv'
     output:
         'plots/count_only/number_spor_genes_dist.png'
     script:
@@ -322,8 +314,8 @@ rule copy_jordan_figs:
 # lets try and draw a tree with python
 rule draw_a_tree:
     input:
-        tree = 'data/Jordan_MAG_list/tree_files/concat_ribosomal.tree',
-        jor='data/Jordan_MAG_list/spore_prediction/jor_predicted_classes_2.csv'
+        tree = 'data/tree_files/concat_ribosomal.tree',
+        jor='data/spore_prediction/jor_predicted_classes_2.csv'
     output:
         tree_viz='plots/trees/first_tree.pdf'
     script:

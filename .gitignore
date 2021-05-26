@@ -10,15 +10,30 @@
 *.n
 *.gff
 *.svg
+*.tree
+*.blastout
+*.db
+.*raxml
 
-# directories
+# data files but keep structure
+data/genomes/*
+data/proteins/*
+data/annotations/*
+data/ribosomal_aligned/*
+data/spore_prediction/*
+data/tree_files/*
+
+# entire directories
 plots/
-data/weller_wu_labelled/
 presentation/
-data/Jordan_MAG_list/*/
-data/bsub_ref_spor_genes/
 weller_wu_supplemental/
+data/weller_wu_labelled/
 .vscode/
+data/pblastdbs/
+data/bsub_ref_spor_pblast_out/
+data/bsub_ref_spor_genes/
+data/ref_spor_pblast_out/
+data/sporelosstree
 datasets
 
 # built latex shit
