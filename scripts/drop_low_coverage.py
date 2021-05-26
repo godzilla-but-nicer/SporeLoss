@@ -3,7 +3,7 @@ import pandas as pd
 from Bio import AlignIO, Seq
 
 # parameter to determine the maximum missing proportion that we keep
-missing_thresh = 0.9
+missing_thresh = 0.4
 
 # load the alignments and turn them into a numpy array
 alignments = AlignIO.read(snakemake.input[0], 'fasta')

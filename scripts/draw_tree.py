@@ -10,11 +10,6 @@ root = 'NC_000913.3'
 tree = Tree(snakemake.input.tree)
 tree.set_outgroup(root)
 
-rounds_of_trimming = 1
-for _ in range(rounds_of_trimming):
-    for leaf in tree.get_leaves():
-        leaf.delete()
-
 # keep_list = []
 # for n, node in enumerate(tree.get_leaf_names()):
 #     if node in sample_genomes:

@@ -23,6 +23,3 @@ for record in tqdm(seqs):
     record.seq = record.seq[start:stop]
 
 AlignIO.write(seqs, snakemake.output[0], 'fasta')
-
-
-

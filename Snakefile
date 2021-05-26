@@ -118,9 +118,10 @@ rule clean_renamed_concat:
     input:
         "data/Jordan_MAG_list/tree_files/renamed_concat.afa"
     output:
-        "data/Jordan_MAG_list/tree_files/renamed_concat_clean.afa"
-    script:
-        "scripts/drop_low_coverage.py"
+        seq="data/Jordan_MAG_list/tree_files/renamed_concat_clean.afa",
+        html="data/Jordan_MAG_list/tree_files/renamed_concat_clean.html"
+    shell:
+        "trimal -in {input} -out {output.seq} -htmlout {output.html} -strict"
 
 
 rule fasttree:
@@ -142,14 +143,6 @@ rule bsub_sporulation:
         db=temp("data/Jordan_MAG_list/test.db")
     script:
         "scripts/get_bsub_seqs.py"
-
-rule biopython_translate:
-    input:
-        fna='data/ref_spor_genes/bsub_ref.fna'
-    output:
-        faa='data/ref_spor_genes/bsub_ref.faa'
-    script:
-        "scripts/biopython_translate.py"
 
 # an alternate plan to get these protein sequences. Search uniprot!
 rule sporulation_proteins_uniprot:
@@ -301,12 +294,38 @@ rule display_pres_abs_ww:
     script:
         'scripts/display_presence_absence.py'
 
+rule random_forest_vars:
+    input:
+        classes = 'data/Jordan_MAG_list/spore_prediction/jor_predicted_classes_2.csv',
+        mat = 'data/Jordan_MAG_list/spore_prediction/presence_absence.csv',
+        genes = 'data/delta6-network-genes.csv'
+    output:
+        corr_mat='plots/random_forest/corr_mat.png',
+        reg_degree='plots/random_forest/reg_outdegree.png',
+        reg_betw='plots/random_forest/reg_betw.png',
+        reg_pagerank='plots/random_forest/reg_pagerank.png',
+        importance='plots/random_forest/importance.png',
+        dec_pca='plots/decision/pca_space_umap_labels.png'
+    threads: 4
+    script:
+        'scripts/random_forest_plots.py'
+
+# I'll try to reproduce some of jordans results
+rule copy_jordan_figs:
+    input:
+        mat = 'data/Jordan_MAG_list/spore_prediction/presence_absence.csv'
+    output:
+        'plots/count_only/number_spor_genes_dist.png'
+    script:
+        'scripts/jordan_replication.py'
+
 # lets try and draw a tree with python
 rule draw_a_tree:
     input:
-        tree='data/Jordan_MAG_list/tree_files/concat_ribosomal.tree',
+        tree = 'data/Jordan_MAG_list/tree_files/concat_ribosomal.tree',
         jor='data/Jordan_MAG_list/spore_prediction/jor_predicted_classes_2.csv'
     output:
         tree_viz='plots/trees/first_tree.pdf'
     script:
         'scripts/draw_tree.py'
+
