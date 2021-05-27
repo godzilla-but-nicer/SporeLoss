@@ -28,14 +28,25 @@ rule paper:
         "cd {params.paper_dir}; make"
 
 
-rule get_file_names:
+rule rename_files:
     input:
-        gff="data/annotations/",
-        fna="data/genomes/"
+        fna="data/genomes/",
+        faa="data/proteins/"
     output:
-        "data/genomes_list.txt"
+        "data/genome_list.csv"
     script:
-        "scripts/get_file_names.py"
+        "scripts/rename_files.py"
+
+
+rule orthofinder_all:
+    input:
+        "data/proteins/"
+    output:
+        "text.txt"
+    threads: 6
+    shell:
+        "orthofinder -f {input} -t {threads}"
+
 
 # Get ribosomal genes from B. subtilis ref genome
 # this step is BIG and really should probably be broken up
